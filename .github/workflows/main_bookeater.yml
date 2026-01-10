@@ -21,7 +21,7 @@ jobs:
 
       # CORRECCIÓN IMPORTANTE: Apuntamos a la carpeta BookEater donde está el .csproj
       - name: Publicar proyecto
-        run: dotnet publish BookEater/BookEater.csproj -c Release -o ./myapp
+        run: dotnet publish BookEater.csproj -c Release -o ./myapp
 
       - name: Subir artefacto
         uses: actions/upload-artifact@v4
@@ -44,7 +44,8 @@ jobs:
       - name: Desplegar en Azure
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'AQUI_PON_EL_NOMBRE_DE_TU_WEB'  # <--- ¡No olvides cambiar esto!
+          app-name: 'BookEater'  # <--- ¡No olvides cambiar esto!
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./myapp
+
