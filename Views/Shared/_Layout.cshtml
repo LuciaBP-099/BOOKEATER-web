@@ -44,7 +44,7 @@
                                 <a class="nav-link text-dark fw-bold" asp-controller="Club" asp-action="Index">☕ Reading Club</a>
                             </li>
 
-                            @if (User.Identity.Name == "administratorBookEater@gmail.com")
+                            @if (User.Identity.Name == "admin@bookeater.com")
                             {
                                 <li class="nav-item ms-3">
                                     <a class="nav-link text-danger fw-bold border border-danger rounded px-2" 
@@ -82,4 +82,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
