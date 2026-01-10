@@ -1,0 +1,22 @@
+@model BookEater.Models.ClubPick
+
+@{ ViewData["Title"] = "Select Club Book"; }
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4">Select Book of the Month</h2>
+            <form asp-action="Create">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Select a Book</label>
+                    <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId"></select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Discussion Topic</label>
+                    <input asp-for="Topic" class="form-control" placeholder="e.g. What do you think about the main character?" />
+                </div>
+                <button type="submit" class="btn btn-success w-100">Launch Club</button>
+            </form>
+        </div>
+    </div>
+</div>

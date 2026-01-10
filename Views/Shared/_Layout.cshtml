@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookEater</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BookEater.styles.css" asp-append-version="true" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom mb-4">
+            <div class="container">
+                <a class="navbar-brand fs-3" asp-area="" asp-controller="Home" asp-action="Index" style="font-family: Georgia, serif;">
+                    📖 BookEater
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Books" asp-action="Index">My Library</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="MyReviews">My Reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold text-primary" asp-area="" asp-controller="Books" asp-action="Community">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold" asp-controller="Club" asp-action="Index">☕ Reading Club</a>
+                            </li>
+
+                            @if (User.Identity.Name == "administratorBookEater@gmail.com")
+                            {
+                                <li class="nav-item ms-3">
+                                    <a class="nav-link text-danger fw-bold border border-danger rounded px-2" 
+                                       asp-area="" 
+                                       asp-controller="Admin" 
+                                       asp-action="Index">
+                                       ⚙️ Admin Panel
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+
+                    <partial name="_LoginPartial" />
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <small>&copy; 2025 BookEater. Keep turning pages. - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-decoration-none text-muted">Privacy</a></small>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

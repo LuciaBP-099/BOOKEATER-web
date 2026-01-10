@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using BookEater.Models
+
+@inject SignInManager<MyUser> SignInManager
+@inject UserManager<MyUser> UserManager
+
+<ul class="navbar-nav align-items-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark fw-bold" href="#">Hello, @User.Identity?.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-controller="Login" asp-action="Logout" method="post">
+                <button type="submit" class="nav-link btn btn-link text-secondary text-decoration-none border-0 ms-2">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Join Club</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark ms-2" asp-controller="Login" asp-action="Login">Log In</a>
+        </li>
+    }
+</ul>

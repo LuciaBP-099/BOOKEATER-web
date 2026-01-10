@@ -1,0 +1,61 @@
+﻿@model BookEater.Models.Book
+
+@{
+    ViewData["Title"] = "Edit Book";
+    int currentRating = (int?)ViewData["UserRating"] ?? 0;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="text-center mb-4">
+                <span style="font-size: 2.5rem;">✏️</span>
+                <h2 class="fw-bold" style="font-family: Georgia, serif;">Edit My Entry</h2>
+                <p class="text-muted">Manage your list and rating for "@Model.Title"</p>
+            </div>
+
+            <div class="p-4 border rounded-3 bg-light shadow-sm">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" name="id" value="@Model.BookId" />
+
+                    <div class="mb-3">
+                        <label class="form-label small text-uppercase text-muted fw-bold">Title</label>
+                        <input class="form-control bg-white" value="@Model.Title" disabled readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small text-uppercase text-muted fw-bold">Author</label>
+                        <input class="form-control bg-white" value="@Model.Author" disabled readonly />
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="mb-3">
+                        <label class="form-label small text-uppercase text-primary fw-bold">Your List</label>
+                        <input type="text" name="ListName" class="form-control" 
+                               value="@ViewData["UserListName"]" 
+                               placeholder="E.g. Favorites, To Read..." />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label small text-uppercase text-warning fw-bold">Your Rating</label>
+                        <select name="UserRating" class="form-select">
+                            <option value="0" selected="@(currentRating == 0)">-- Unrated --</option>
+                            <option value="5" selected="@(currentRating == 5)">⭐⭐⭐⭐⭐ (5)</option>
+                            <option value="4" selected="@(currentRating == 4)">⭐⭐⭐⭐ (4)</option>
+                            <option value="3" selected="@(currentRating == 3)">⭐⭐⭐ (3)</option>
+                            <option value="2" selected="@(currentRating == 2)">⭐⭐ (2)</option>
+                            <option value="1" selected="@(currentRating == 1)">⭐ (1)</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-dark">Save Changes</button>
+                        <a asp-action="Index" class="btn btn-link text-muted text-decoration-none">Cancel</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

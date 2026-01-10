@@ -1,0 +1,90 @@
+@model IEnumerable<BookEater.Models.Book>
+
+@{
+    ViewData["Title"] = "Find & Add Books";
+}
+
+<div class="container py-5">
+    
+    <div class="text-center mb-5">
+        <span style="font-size: 3rem;">🔍</span>
+        <h1 class="fw-bold" style="font-family: Georgia, serif;">Find & Add Books</h1>
+        <p class="text-muted">
+            Search through our catalog of @(Model != null ? Model.Count() : 0) displayed books.
+        </p>
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <form asp-action="Search" method="get">
+                    <div class="input-group input-group-lg shadow-sm">
+                        <input type="text" name="searchString" class="form-control border-0" 
+                               placeholder="Search by title or author..." 
+                               value="@ViewData["CurrentFilter"]">
+                        <button class="btn btn-dark px-4" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="text-center text-muted py-5">
+                <p>No books found. Try typing "Harry Potter", "Orwell" or "King".</p>
+                <a asp-action="Index" class="btn btn-outline-secondary btn-sm mt-2">Back to My Library</a>
+            </div>
+        }
+        else 
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">@item.Title</h5>
+                            <h6 class="card-subtitle mb-3 text-muted fst-italic">@item.Author</h6>
+                            <span class="badge bg-light text-dark mb-3">@item.Genre</span>
+                            
+                            <hr class="my-3">
+
+                            <form asp-action="AddToLibrary" method="post">
+                                <input type="hidden" name="bookId" value="@item.BookId" />
+
+                                <div class="mb-2">
+                                    <label class="small fw-bold text-uppercase text-muted">Add to List:</label>
+                                    <input type="text" name="listName" class="form-control form-control-sm" 
+                                           placeholder="e.g. Favorites (Optional)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="small fw-bold text-uppercase text-muted">Your Rating:</label>
+                                    <select name="rating" class="form-select form-select-sm">
+                                        <option value="0">No rating yet</option>
+                                        <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                                        <option value="4">⭐⭐⭐⭐ (4)</option>
+                                        <option value="3">⭐⭐⭐ (3)</option>
+                                        <option value="2">⭐⭐ (2)</option>
+                                        <option value="1">⭐ (1)</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-outline-dark w-100 btn-sm rounded-pill">
+                                    + Add to My Library
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    
+    @if (Model != null && Model.Any())
+    {
+        <div class="text-center mt-5">
+            <a asp-action="Index" class="text-muted text-decoration-none">Back to My Library</a>
+        </div>
+    }
+</div>

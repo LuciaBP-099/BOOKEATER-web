@@ -1,0 +1,62 @@
+﻿@model BookEater.Models.RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5 col-lg-4">
+
+            <div class="text-center mb-4">
+                <span style="font-size: 3rem;">✒️</span>
+            </div>
+
+            <h2 class="text-center mb-2 fw-bold" style="font-family: Georgia, serif; color: #333;">
+                Join the Club
+            </h2>
+            <p class="text-center text-muted mb-4 small">
+                Start your reading journey with BookEater.
+            </p>
+
+            <div class="p-4 border rounded-3 bg-light shadow-sm">
+                <form method="post">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3 small fw-bold text-center"></div>
+
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase fw-bold">Email</label>
+                        <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small text-muted text-uppercase fw-bold">Password</label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Create a password" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label small text-muted text-uppercase fw-bold">Confirm Password</label>
+                        <input asp-for="Password2" type="password" class="form-control" placeholder="Repeat password" />
+                        <span asp-validation-for="Password2" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100 py-2">
+                        Create Account
+                    </button>
+
+                    <div class="text-center mt-3">
+                        <p class="text-muted small mb-0">
+                            Already have an account?
+                            <a href="/Account/Login" class="text-decoration-none fw-bold text-dark">Log in</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,31 @@
+@model IEnumerable<BookEater.Models.MyUser>
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between mb-4">
+        <h2>👥 User Registry</h2>
+        <a asp-action="Index" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+
+    <table class="table table-hover bg-white shadow-sm rounded">
+        <thead class="table-dark">
+            <tr>
+                <th>Email / Username</th>
+                <th>Books in Library</th>
+                <th>Join Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@user.UserBooks.Count</td>
+                    <td>@user.CreationDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

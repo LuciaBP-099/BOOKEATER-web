@@ -1,0 +1,87 @@
+@model BookEater.Models.ClubPick
+
+@{
+    ViewData["Title"] = "Reading Club";
+}
+
+<div class="container py-5">
+    
+    <div class="text-center mb-5">
+        <span style="font-size: 3rem;">☕</span>
+        <h1 class="fw-bold" style="font-family: Georgia, serif;">Monthly Book Club</h1>
+        @if (Model != null)
+        {
+            <p class="text-muted">Current Pick: @Model.Month.ToString("MMMM yyyy", System.Globalization.CultureInfo.InvariantCulture)</p>
+        }
+    </div>
+
+    @if (Model == null)
+    {
+        <div class="alert alert-warning text-center">
+            The admin hasn't selected a book for this month yet! Come back later.
+            @if(User.Identity.Name == "administratorBookEater@gmail.com")
+            {
+                <br><a asp-action="Create" class="btn btn-dark mt-3">Admin: Select Book</a>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="row g-5">
+            <div class="col-md-5">
+                <div class="card shadow-sm border-0 bg-light p-4 text-center h-100">
+                    <div class="display-1 mb-3">📕</div>
+                    <h2 class="fw-bold mb-2">@Model.Book.Title</h2>
+                    <p class="text-muted fst-italic">by @Model.Book.Author</p>
+                    <div class="text-warning mb-4">@Model.Book.Rating ★</div>
+                    
+                    <hr />
+                    <h5 class="fw-bold text-primary mt-4">Discussion Topic:</h5>
+                    <p class="lead">"@Model.Topic"</p>
+                    
+                    <div class="mt-auto pt-4">
+                        <a asp-controller="Books" asp-action="Details" asp-route-id="@Model.BookId" class="btn btn-outline-dark rounded-pill">View Book Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-white fw-bold py-3">
+                        💬 Club Discussion (@Model.Comments.Count posts)
+                    </div>
+                    
+                    <div class="card-body bg-light" style="height: 400px; overflow-y: auto;">
+                        @if (!Model.Comments.Any())
+                        {
+                            <p class="text-muted text-center mt-5">No comments yet. Start the conversation!</p>
+                        }
+                        else
+                        {
+                            @foreach (var comment in Model.Comments.OrderBy(c => c.PostedDate))
+                            {
+                                <div class="mb-3 bg-white p-3 rounded shadow-sm border-start border-4 border-primary">
+                                    <div class="d-flex justify-content-between small text-muted mb-1">
+                                        <span class="fw-bold text-dark">@(comment.User?.FullName ?? comment.User?.UserName)</span>
+                                        <span>@comment.PostedDate.ToShortTimeString()</span>
+                                    </div>
+                                    <p class="mb-0 text-dark">@comment.Content</p>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="card-footer bg-white p-3">
+                        <form asp-action="PostComment">
+                            <input type="hidden" name="ClubPickId" value="@Model.Id" />
+                            <div class="input-group">
+                                <input type="text" name="Content" class="form-control" placeholder="Share your thoughts..." required autocomplete="off">
+                                <button class="btn btn-primary" type="submit">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

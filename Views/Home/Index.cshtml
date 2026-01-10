@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="container py-5">
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-5 text-center text-lg-start">
+            <h1 class="display-2 fw-bold lh-1 mb-3">BookEater</h1>
+            <p class="lead fw-normal text-muted mb-4">
+                Track, rate, and share your book experiences all in one place.
+            </p>
+
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center justify-content-lg-start">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/Books/Index" class="btn btn-dark btn-lg px-4 me-sm-3">Open Library</a>
+                }
+                else
+                {
+                    <a href="/Account/Register" class="btn btn-dark btn-lg px-4 me-sm-3">Join Club</a>
+                    <a href="/Account/Login" class="btn btn-outline-dark btn-lg px-4">Log In</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+            <ul class="list-group list-group-flush shadow-sm rounded-3 bg-light p-4">
+
+                <li class="list-group-item bg-transparent d-flex gap-3 py-3 border-0">
+                    <span style="font-size: 2rem;">📝</span>
+                    <div>
+                        <h5 class="mb-0 fw-bold">The Catalog</h5>
+                        <p class="mb-0 text-muted">Save books. Make customized lists. Suggest new titles.</p>
+                    </div>
+                </li>
+
+                <li class="list-group-item bg-transparent d-flex gap-3 py-3 border-0">
+                    <span style="font-size: 2rem;">⭐</span>
+                    <div>
+                        <h5 class="mb-0 fw-bold">Review System</h5>
+                        <p class="mb-0 text-muted">Rate your reads (1-5 stars) and write your reviews.</p>
+                    </div>
+                </li>
+
+                <li class="list-group-item bg-white d-flex gap-3 py-3 border rounded-3 mt-2 shadow-sm">
+                    <span style="font-size: 2rem;">💬</span>
+                    <div>
+                        <h5 class="mb-0 fw-bold text-primary">Monthly Reading Club</h5>
+                        <p class="mb-0">
+                            BookEater suggests <strong>one book per month</strong>.
+                            Users exchange opinions and reviews in the chat for that month's book.
+                        </p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

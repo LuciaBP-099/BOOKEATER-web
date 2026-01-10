@@ -1,0 +1,101 @@
+@model BookEater.Models.AdminDashboardVM
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container py-5">
+    
+    <div class="d-flex align-items-center mb-4">
+        <span class="me-2" style="font-size: 2rem;">🚀</span>
+        <h2 class="fw-bold mb-0">Admin Dashboard</h2>
+    </div>
+
+    <div class="row mb-5 g-4">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary h-100 shadow-sm border-0">
+                <div class="card-body text-center d-flex flex-column justify-content-center">
+                    <h1 class="display-4 fw-bold">@Model.TotalUsers</h1>
+                    <p class="card-text text-uppercase small opacity-75 fw-bold">Total Users</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success h-100 shadow-sm border-0">
+                <div class="card-body text-center d-flex flex-column justify-content-center">
+                    <h1 class="display-4 fw-bold">@Model.TotalBooks</h1>
+                    <p class="card-text text-uppercase small opacity-75 fw-bold">Total Books</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-dark bg-warning h-100 shadow-sm border-0">
+                <div class="card-body text-center d-flex flex-column justify-content-center">
+                    <h1 class="display-4 fw-bold">@Model.TotalReviews</h1>
+                    <p class="card-text text-uppercase small opacity-75 fw-bold">Total Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold">🏆 Most Active Users</h5>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                        @foreach (var user in Model.MostActiveUsers)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                <div>
+                                    <span class="fw-bold d-block">@user.Email</span>
+                                    <small class="text-muted">Joined: @user.CreationDate.ToShortDateString()</small>
+                                </div>
+                                <span class="badge bg-secondary rounded-pill">@user.UserBooks.Count books</span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="card-footer bg-white text-center py-3">
+                    <a asp-action="AllUsers" class="btn btn-outline-dark btn-sm">View All Users</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold">⭐ Top Rated Books</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0 align-middle">
+                        <tbody>
+                            @foreach (var book in Model.TopRatedBooks)
+                            {
+                                <tr>
+                                    <td class="ps-4">
+                                        <span class="fw-bold text-dark">@book.Title</span>
+                                    </td>
+                                    <td class="text-warning fw-bold">
+                                        @book.Rating ★
+                                    </td>
+                                    <td class="text-end pe-4">
+                                        <a asp-action="Reviews" asp-route-id="@book.BookId" class="btn btn-sm btn-outline-danger">
+                                            Manage Reviews
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-white text-center py-3">
+                    <a asp-action="AllBooks" class="btn btn-outline-dark btn-sm">View Global Library</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
