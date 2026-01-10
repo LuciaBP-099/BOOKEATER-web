@@ -27,7 +27,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish BookEater/BookEater.csproj -c Release -o ./myapp
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D79E86AF2B04ACE9FCE21832D05EE1A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_103C183CFC09490E92E8FF9D8F21C567 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A3C621DA0A5C4CA4ACA1114369F385D2 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_373B5B69D4CB4CB1818AEFA809B8C282 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_969BCD553B5F46CCAABC993E55FA12D2 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C31F7D97E87C469A89C3211ADBC98757 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -62,5 +62,4 @@ jobs:
           app-name: 'BookEater'
           slot-name: 'Production'
           package: .
-
           
