@@ -1,69 +1,50 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP.Net Core app to Azure Web App - BookEater
+name: Despliegue BookEater (Final)
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-  
-permissions:
-  contents: read
-  actions: write
-  
+
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up .NET
+      - name: Configurar .NET 10
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.x'
+          include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      # CORRECCIÓN IMPORTANTE: Apuntamos a la carpeta BookEater donde está el .csproj
+      - name: Publicar proyecto
+        run: dotnet publish BookEater/BookEater.csproj -c Release -o ./myapp
 
-      - name: Publish app
-        run: dotnet publish -c Release -o publish
-
-      - name: Upload artifact for deployment
+      - name: Subir artefacto
         uses: actions/upload-artifact@v4
         with:
-          name: net-app
-          path: publish
+          name: .net-app
+          path: ./myapp
+          if-no-files-found: error
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
-    permissions:
-      id-token: write
-      contents: read
-
+    
     steps:
-      - name: Download artifact from build job
+      - name: Descargar artefacto
         uses: actions/download-artifact@v4
         with:
-          name: net-app
-          path: publish
+          name: .net-app
+          path: ./myapp
 
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_373B5B69D4CB4CB1818AEFA809B8C282 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_969BCD553B5F46CCAABC993E55FA12D2 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C31F7D97E87C469A89C3211ADBC98757 }}
-
-      - name: Deploy to Azure Web App
+      - name: Desplegar en Azure
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'BookEater'
-          slot-name: 'Production'
+          app-name: 'AQUI_PON_EL_NOMBRE_DE_TU_WEB'  # <--- ¡No olvides cambiar esto!
+          slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: publish
-
-
+          package: ./myapp
