@@ -23,7 +23,7 @@ namespace BookEater.Controllers
 
         private bool IsAdmin()
         {
-            return User.Identity.Name == "administratorBookEater@gmail.com";
+            return User.Identity.Name == "admin@bookeater.com";
         }
 
         public async Task<IActionResult> Index()
