@@ -14,6 +14,8 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
+
+// --- UPDATED SWAGGER CONFIGURATION ---
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo 
@@ -22,7 +24,33 @@ builder.Services.AddSwaggerGen(c =>
         Version = "v1",
         Description = "API for the Android APP" 
     });
+
+    // This adds the "Authorize" button to Swagger UI
+    c.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
+    {
+        Description = "Input your ApiKey to access the endpoints (e.g., SecretKey)",
+        In = ParameterLocation.Header,
+        Name = "ApiKey", 
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "ApiKeyScheme"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "ApiKey"
+                }
+            },
+            new string[] {}
+        }
+    });
 });
+// --------------------------------------
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AzureContext")));
@@ -71,7 +99,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<ApplicationDbContext>();
-	context.Database.Migrate();
+        context.Database.Migrate();
         DbInitializer.Initialize(context); 
     }
     catch (Exception ex)
@@ -82,4 +110,3 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.Run();
-
