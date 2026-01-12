@@ -28,42 +28,45 @@ The system is built using:
 ## Screenshots
 Screenshots showing the interface of the web application: 
 1. **Home page**
-<img width="1437" height="746" alt="Home page" src="https://github.com/user-attachments/assets/b513a841-857d-4317-bb42-797ca2a1dbc3" />
+<img width="1437" height="746" alt="Home page" src="https://github.com/user-attachments/assets/5a7a5c51-66ca-4827-9aa8-a6b3eb3013e1" />
 The landing page when the user is not logged in.
 
-<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/fbb88768-c963-4b92-a7df-0e29f6ecd921" />
+<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/85f0de85-19d3-40f3-bd21-0ef692bb9eec" />
 The landing page when the user (admin in this case) is logged in.
 
 2. **Login Screen**
-<img width="1437" height="779" alt="log in" src="https://github.com/user-attachments/assets/74d4a9a1-8f97-4b74-91e5-21438049922c" />
+<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/33ab413b-96c5-4833-9656-b781505c2340" />
 
 3. **Register Screen** 
-<img width="1437" height="779" alt="Register screen" src="https://github.com/user-attachments/assets/c9391ade-17a2-47b5-a1bf-7edda048c145" />
+<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/59fb5d79-74ba-4c70-9bfa-19dd8dec8193" />
+
 
 4. **My Library**
-<img width="1437" height="746" alt="My Library emplty" src="https://github.com/user-attachments/assets/a83a5c2a-8d9a-481a-a14f-eeda2920f0f6" />
+   
+<img width="1437" height="746" alt="My Library emplty" src="https://github.com/user-attachments/assets/8d3177ae-23c7-4863-9343-0d418d9c4083" />
 My Library when it is emplty.
 
-<img width="1437" height="746" alt="My Library" src="https://github.com/user-attachments/assets/ef7d406f-8fdd-4828-b9a5-9e375576e2eb" />
+<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/838db022-6464-412e-a639-b89c383fc39b" />
 My Library when there are books saved and reading lists made.
 
 5. **My Reviews**
-<img width="1437" height="746" alt="My Reviews" src="https://github.com/user-attachments/assets/c7d58a54-8b79-477d-8df5-d7666fc30912" />
+<img width="1437" height="746" alt="My Library emplty" src="https://github.com/user-attachments/assets/ce9cb5e6-82fb-493f-9f54-0cbe1257b190" />
 
-6. **My Community**
-<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/f34ffe67-90e1-40d1-8876-6846420a5556" />
+6. **The Community**
+<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/55b3f00a-9387-4b16-8fb5-b9f61eff37e2" />
 
-<img width="1437" height="746" alt="The Hunger Community" src="https://github.com/user-attachments/assets/6fd5af1c-a6ad-4c1f-864a-17f1a4f9d9be" />
+<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/f73193ec-c735-441b-b967-5f228dc8db59" />
 The Hunger Games' community reviews.
 
-<img width="1437" height="779" alt="Twilight Community" src="https://github.com/user-attachments/assets/74530b50-da3a-48b9-b4f9-79f5f1942f40" />
+<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/14f46429-907d-45c0-89ea-0f945b29051e" />
 The Twilight' community.
 
 7. **Reading Club**
 <img width="1437" height="779" alt="Reading Club" src="https://github.com/user-attachments/assets/1e5eb75d-92ed-48f8-8321-da1ed31477e5" />
 
 8. **Admin Panel**
-<img width="1437" height="779" alt="Admin Panel" src="https://github.com/user-attachments/assets/782118cb-f5ef-48de-abd9-46a472996002" />
+<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/3d434e21-d357-4b29-a0ec-8b9b3b93f00c" />
+
 
 ## Webpage
 The web application is hosted on Microsoft Azure, providing public access to the system via the url: https://bookeater-g2f5bubzgjapg2he.germanywestcentral-01.azurewebsites.net/
@@ -76,4 +79,4 @@ UserBooks: Stores the relations books to users.
 Reviews: Stores the reviews of a book.
 The database model can be seen in the diagram below, I created it using SQL Server Management Studio (SSMS):
 
-![database](https://github.com/user-attachments/assets/682da554-ba8d-40cb-8b6f-90cf6f41cb6b)
+<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/75892a2f-357a-45d0-87bd-2f3ae7efad75" />
