@@ -79,4 +79,4 @@ UserBooks: Stores the relations books to users.
 Reviews: Stores the reviews of a book.
 The database model can be seen in the diagram below, I created it using SQL Server Management Studio (SSMS):
 
-<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/75892a2f-357a-45d0-87bd-2f3ae7efad75" />
+![database](https://github.com/user-attachments/assets/9c1ba4b4-7563-49a0-b5bc-a51ec9ea850f)
