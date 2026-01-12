@@ -62,7 +62,7 @@ The Hunger Games' community reviews.
 The Twilight' community.
 
 7. **Reading Club**
-<img width="1437" height="779" alt="Reading Club" src="https://github.com/user-attachments/assets/1e5eb75d-92ed-48f8-8321-da1ed31477e5" />
+<img width="1437" height="779" alt="Reading Club" src="https://github.com/user-attachments/assets/14fdd56c-f070-46f6-90ea-999007a05734" />
 
 8. **Admin Panel**
 <img width="1437" height="779" alt="Admin Panel" src="https://github.com/user-attachments/assets/0115980b-a439-4e8c-af47-4114c7aeabff" />
