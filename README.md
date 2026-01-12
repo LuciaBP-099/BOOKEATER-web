@@ -35,10 +35,10 @@ The landing page when the user is not logged in.
 The landing page when the user (admin in this case) is logged in.
 
 2. **Login Screen**
-<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/33ab413b-96c5-4833-9656-b781505c2340" />
+<img width="1437" height="779" alt="log in" src="https://github.com/user-attachments/assets/ffc836df-1306-47ad-a27f-79977bb3ac16" />
 
 3. **Register Screen** 
-<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/59fb5d79-74ba-4c70-9bfa-19dd8dec8193" />
+<img width="1437" height="779" alt="Register screen" src="https://github.com/user-attachments/assets/70ade60f-2c60-4660-b29c-b3d42de8d63a" />
 
 
 4. **My Library**
@@ -46,26 +46,26 @@ The landing page when the user (admin in this case) is logged in.
 <img width="1437" height="746" alt="My Library emplty" src="https://github.com/user-attachments/assets/8d3177ae-23c7-4863-9343-0d418d9c4083" />
 My Library when it is emplty.
 
-<img width="1437" height="746" alt="Home page when log in" src="https://github.com/user-attachments/assets/838db022-6464-412e-a639-b89c383fc39b" />
+<img width="1437" height="746" alt="My Library" src="https://github.com/user-attachments/assets/ac6a7bc5-890d-4c1e-a49b-4774f88e1e6b" />
 My Library when there are books saved and reading lists made.
 
 5. **My Reviews**
-<img width="1437" height="746" alt="My Library emplty" src="https://github.com/user-attachments/assets/ce9cb5e6-82fb-493f-9f54-0cbe1257b190" />
+<img width="1437" height="746" alt="My Reviews" src="https://github.com/user-attachments/assets/6f956d3d-d8f4-489a-a905-03b28a4c79a6" />
 
 6. **The Community**
 <img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/55b3f00a-9387-4b16-8fb5-b9f61eff37e2" />
 
-<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/f73193ec-c735-441b-b967-5f228dc8db59" />
+<img width="1437" height="746" alt="The Hunger Community" src="https://github.com/user-attachments/assets/109bc4d3-bb77-404e-9561-b752049089b1" />
 The Hunger Games' community reviews.
 
-<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/14f46429-907d-45c0-89ea-0f945b29051e" />
+<img width="1437" height="779" alt="Twilight Community" src="https://github.com/user-attachments/assets/95dfc0cb-06e3-4b32-9f6c-d4476a451103" />
 The Twilight' community.
 
 7. **Reading Club**
 <img width="1437" height="779" alt="Reading Club" src="https://github.com/user-attachments/assets/1e5eb75d-92ed-48f8-8321-da1ed31477e5" />
 
 8. **Admin Panel**
-<img width="1437" height="746" alt="My Community" src="https://github.com/user-attachments/assets/3d434e21-d357-4b29-a0ec-8b9b3b93f00c" />
+<img width="1437" height="779" alt="Admin Panel" src="https://github.com/user-attachments/assets/0115980b-a439-4e8c-af47-4114c7aeabff" />
 
 
 ## Webpage
