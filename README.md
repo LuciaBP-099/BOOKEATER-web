@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/24561944/README.md)
 # BookEater Web Application
 
 Information System
